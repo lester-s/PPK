@@ -1,1 +1,6 @@
 D:\Projects\PPK\PPKConsole\PPKConsole\bin\Debug\PPKConsole.exe.config
+D:\Projects\PPK\PPKConsole\PPKConsole\bin\Debug\PPKConsole.exe
+D:\Projects\PPK\PPKConsole\PPKConsole\bin\Debug\PPKConsole.pdb
+D:\Projects\PPK\PPKConsole\PPKConsole\obj\Debug\PPKConsole.csprojResolveAssemblyReference.cache
+D:\Projects\PPK\PPKConsole\PPKConsole\obj\Debug\PPKConsole.exe
+D:\Projects\PPK\PPKConsole\PPKConsole\obj\Debug\PPKConsole.pdb
