@@ -1,0 +1,14 @@
+D:\Projects\PPK\PKKGui\PKKGui\bin\Debug\PKKGui.exe.config
+D:\Projects\PPK\PKKGui\PKKGui\bin\Debug\PKKGui.exe
+D:\Projects\PPK\PKKGui\PKKGui\bin\Debug\PKKGui.pdb
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui.csprojResolveAssemblyReference.cache
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\MainWindow.g.cs
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\App.g.cs
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui_MarkupCompile.cache
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui_MarkupCompile.lref
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\MainWindow.baml
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui.g.resources
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui.Properties.Resources.resources
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui.csproj.GenerateResource.Cache
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui.exe
+D:\Projects\PPK\PKKGui\PKKGui\obj\Debug\PKKGui.pdb

@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPKConsole", "PPKConsole\PPKConsole\PPKConsole.csproj", "{F38318A3-1766-44BB-B050-4B752192EAC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPKHttplistener", "PPKHttpListener\PPKHttplistener\PPKHttplistener.csproj", "{D3586105-A036-486B-BBC4-8156604D650E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PPKBuisnessLayer", "PPKBuisnessLayer\PPKBuisnessLayer\PPKBuisnessLayer.csproj", "{47E00569-9945-485F-B98D-D94EE7BB2DB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PKKGui", "PKKGui\PKKGui\PKKGui.csproj", "{DBFEEB7D-DE80-4C59-8BD0-7E3C0FD4EFF3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +21,18 @@ Global
 		{F38318A3-1766-44BB-B050-4B752192EAC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F38318A3-1766-44BB-B050-4B752192EAC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F38318A3-1766-44BB-B050-4B752192EAC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3586105-A036-486B-BBC4-8156604D650E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3586105-A036-486B-BBC4-8156604D650E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3586105-A036-486B-BBC4-8156604D650E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3586105-A036-486B-BBC4-8156604D650E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47E00569-9945-485F-B98D-D94EE7BB2DB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47E00569-9945-485F-B98D-D94EE7BB2DB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47E00569-9945-485F-B98D-D94EE7BB2DB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47E00569-9945-485F-B98D-D94EE7BB2DB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBFEEB7D-DE80-4C59-8BD0-7E3C0FD4EFF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBFEEB7D-DE80-4C59-8BD0-7E3C0FD4EFF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBFEEB7D-DE80-4C59-8BD0-7E3C0FD4EFF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBFEEB7D-DE80-4C59-8BD0-7E3C0FD4EFF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

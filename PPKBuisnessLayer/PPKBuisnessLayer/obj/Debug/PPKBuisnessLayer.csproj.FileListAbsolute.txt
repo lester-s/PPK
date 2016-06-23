@@ -1,0 +1,5 @@
+D:\Projects\PPK\PPKBuisnessLayer\PPKBuisnessLayer\bin\Debug\PPKBuisnessLayer.dll
+D:\Projects\PPK\PPKBuisnessLayer\PPKBuisnessLayer\bin\Debug\PPKBuisnessLayer.pdb
+D:\Projects\PPK\PPKBuisnessLayer\PPKBuisnessLayer\obj\Debug\PPKBuisnessLayer.dll
+D:\Projects\PPK\PPKBuisnessLayer\PPKBuisnessLayer\obj\Debug\PPKBuisnessLayer.pdb
+D:\Projects\PPK\PPKBuisnessLayer\PPKBuisnessLayer\obj\Debug\PPKBuisnessLayer.csprojResolveAssemblyReference.cache

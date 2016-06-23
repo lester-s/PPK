@@ -1,8 +1,14 @@
-﻿using System;
+﻿using PPKBuisnessLayer;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
+using System.Net.WebSockets;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PPKConsole
@@ -11,104 +17,83 @@ namespace PPKConsole
     {
         static void Main(string[] args)
         {
-            try
-            {
-                //Create a UnicodeEncoder to convert between byte array and string.
-                UnicodeEncoding ByteConverter = new UnicodeEncoding();
+            TcpClient myClient = new TcpClient();
+            myClient.Connect("127.0.0.1", 8080);
 
-                //Create byte arrays to hold original, encrypted, and decrypted data.
-                byte[] dataToEncrypt = ByteConverter.GetBytes("Data to Encrypt");
-                byte[] encryptedData;
-                byte[] decryptedData;
+            var tcpStream = myClient.GetStream();
+            var myStreamWriter = new BinaryWriter(tcpStream);
+            var myStreamReader = new BinaryReader(tcpStream);
 
-                //Create a new instance of RSACryptoServiceProvider to generate
-                //public and private key data.
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
-                {
-
-                    //Pass the data to ENCRYPT, the public key information 
-                    //(using RSACryptoServiceProvider.ExportParameters(false),
-                    //and a boolean flag specifying no OAEP padding.
-                    encryptedData = RSAEncrypt(dataToEncrypt, RSA.ExportParameters(false), false);
-
-                    //Pass the data to DECRYPT, the private key information 
-                    //(using RSACryptoServiceProvider.ExportParameters(true),
-                    //and a boolean flag specifying no OAEP padding.
-                    decryptedData = RSADecrypt(encryptedData, RSA.ExportParameters(true), false);
-
-                    //Display the decrypted plaintext to the console. 
-                    Console.WriteLine("Decrypted plaintext: {0}", ByteConverter.GetString(decryptedData));
-                    Console.ReadLine();
-                }
-            }
-            catch (ArgumentNullException)
-            {
-                //Catch this exception in case the encryption did
-                //not succeed.
-                Console.WriteLine("Encryption failed.");
-
-            }
+            ThreadPool.QueueUserWorkItem(HandleWriting, myStreamWriter);
+            ThreadPool.QueueUserWorkItem(HandleReading, myStreamReader);
+            
         }
 
-        static public byte[] RSAEncrypt(byte[] DataToEncrypt, RSAParameters RSAKeyInfo, bool DoOAEPPadding)
+        private static void HandleReading(object state)
+        {
+            var myStreamReader = state as BinaryReader;
+            do
+            {
+                try
+                {
+                    // read the string sent to the server
+                    var theReply = myStreamReader.ReadString();
+                    Console.WriteLine("\r\n" + theReply);
+                }
+                catch (Exception)
+                {
+                    break;
+                }
+            } while (true);
+        }
+
+        private static void HandleWriting(object state)
         {
             try
             {
-                byte[] encryptedData;
-                //Create a new instance of RSACryptoServiceProvider.
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                var myStreamWriter = state as BinaryWriter;
+                var stayAlive = true;
+
+                while (stayAlive)
                 {
-
-                    //Import the RSA Key information. This only needs
-                    //toinclude the public key information.
-                    RSA.ImportParameters(RSAKeyInfo);
-
-                    //Encrypt the passed byte array and specify OAEP padding.  
-                    //OAEP padding is only available on Microsoft Windows XP or
-                    //later.  
-                    encryptedData = RSA.Encrypt(DataToEncrypt, DoOAEPPadding);
+                    ThreadSafeConsole.WriteLine("Write commmand: ");
+                    var command = ThreadSafeConsole.ReadLine();
+                    if (string.IsNullOrWhiteSpace(command))
+                    {
+                        stayAlive = false;
+                    }
+                    else
+                    {
+                        myStreamWriter.Write(command);
+                    }
                 }
-                return encryptedData;
             }
-            //Catch and display a CryptographicException  
-            //to the console.
-            catch (CryptographicException e)
+            catch(Exception ex)
             {
-                Console.WriteLine(e.Message);
-
-                return null;
+                throw ex;
             }
-
+            
         }
 
-        static public byte[] RSADecrypt(byte[] DataToDecrypt, RSAParameters RSAKeyInfo, bool DoOAEPPadding)
+        public static class ThreadSafeConsole
         {
-            try
+            private static object _lockObject = new object();
+
+            public static void WriteLine(string str)
             {
-                byte[] decryptedData;
-                //Create a new instance of RSACryptoServiceProvider.
-                using (RSACryptoServiceProvider RSA = new RSACryptoServiceProvider())
+                lock (_lockObject)
                 {
-                    //Import the RSA Key information. This needs
-                    //to include the private key information.
-                    RSA.ImportParameters(RSAKeyInfo);
-
-                    //Decrypt the passed byte array and specify OAEP padding.  
-                    //OAEP padding is only available on Microsoft Windows XP or
-                    //later.  
-                    decryptedData = RSA.Decrypt(DataToDecrypt, DoOAEPPadding);
+                    Console.WriteLine(str);
                 }
-                return decryptedData;
             }
-            //Catch and display a CryptographicException  
-            //to the console.
-            catch (CryptographicException e)
+
+            public static string ReadLine()
             {
-                Console.WriteLine(e.ToString());
-
-                return null;
+                lock (_lockObject)
+                {
+                    return Console.ReadLine(); ;
+                }
             }
-
         }
     }
 }

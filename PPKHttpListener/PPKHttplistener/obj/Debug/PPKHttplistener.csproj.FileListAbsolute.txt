@@ -1,0 +1,8 @@
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\bin\Debug\PPKHttplistener.exe.config
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\bin\Debug\PPKHttplistener.exe
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\bin\Debug\PPKHttplistener.pdb
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\obj\Debug\PPKHttplistener.csprojResolveAssemblyReference.cache
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\obj\Debug\PPKHttplistener.exe
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\obj\Debug\PPKHttplistener.pdb
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\bin\Debug\PPKBuisnessLayer.dll
+D:\Projects\PPK\PPKHttpListener\PPKHttplistener\bin\Debug\PPKBuisnessLayer.pdb
